@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_todo_demo/todo.dart';
 import 'package:http/http.dart' as http;
 
 class AddTodo extends StatefulWidget {
@@ -15,14 +16,18 @@ class _AddTodoState extends State<AddTodo> {
   final TextEditingController descriptionController = TextEditingController();
 
   void saveTodo() async {
+    Todo todo = Todo(
+      id: 1,
+      title: titleController.text,
+      description: descriptionController.text,
+      done: false,
+    );
     final response = await http.post(
       Uri.parse('https://nest-todo.demo.codingshadows.com/todo'),
-      body: jsonEncode({
-        'id': 1,
-        'title': titleController.text,
-        'description': descriptionController.text,
-        'done': false,
-      }),
+      body: jsonEncode(todo.toJson()),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
     );
     if (response.statusCode == 201 && mounted) {
       titleController.clear();

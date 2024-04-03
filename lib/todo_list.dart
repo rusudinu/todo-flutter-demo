@@ -53,6 +53,9 @@ class _TodoListState extends State<TodoList> {
     http.post(
       Uri.parse('https://nest-todo.demo.codingshadows.com/todo/${todo.id}'),
       body: jsonEncode(todo),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
     );
   }
 
