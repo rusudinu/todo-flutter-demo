@@ -48,6 +48,14 @@ class _TodoListState extends State<TodoList> {
     }
   }
 
+  updateTodo(Todo todo, bool done) {
+    todo.done = done;
+    http.post(
+      Uri.parse('https://nest-todo.demo.codingshadows.com/todo/${todo.id}'),
+      body: jsonEncode(todo),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return todos.isEmpty
@@ -62,8 +70,9 @@ class _TodoListState extends State<TodoList> {
                 trailing: Checkbox(
                   value: todo.done,
                   onChanged: (value) {
+                    updateTodo(todo, value!);
                     setState(() {
-                      todo.done = value!;
+                      todo.done = value;
                     });
                   },
                 ),
