@@ -1,16 +1,11 @@
-# flutter_todo_demo
+# Flutter todo demo app
 
-A new Flutter project.
+This is a simple todo demo app built with Flutter.
 
-## Getting Started
+It demonstrates the following:
 
-This project is a starting point for a Flutter application.
+- creating a new Flutter project
+- calling a function when a button is pressed
+- calling an api to fetch, save and update data
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+⚠️ this may not follow the best practices, rather it is just a starting point built for ease of understanding.
